@@ -61,13 +61,8 @@ class Diamond
 
     public function __toString()
     {
-        $externalSpaces = $this->spaces($this->order);
         $lines = [];
-        $lines[] = $this->overlapBy1(
-            $externalSpaces . $this->letters[0],
-            strrev($externalSpaces . $this->letters[0])
-        );
-        for ($i = 1; $i <= $this->order; $i++) {
+        for ($i = 0; $i <= $this->order; $i++) {
             $externalSpaces = $this->spaces($this->order - $i);
             $internalSpaces = $this->spaces($i);
             $leftPart = $externalSpaces . $this->letters[$i];
