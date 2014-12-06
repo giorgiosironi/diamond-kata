@@ -49,17 +49,17 @@ class Diamond
     {
         $spaces = str_repeat(' ', $this->order);
         $lines = [];
-        $lines[] = $spaces . $this->letters[0] . $spaces . "\n";
+        $lines[] = $spaces . $this->letters[0] . $spaces;
         if ($this->order == 1) {
-            $lines[] = "{$this->letters[1]} {$this->letters[1]}\n";
+            $lines[] = "{$this->letters[1]} {$this->letters[1]}";
         }
         if ($this->order == 2) {
-            $lines[] = " {$this->letters[1]} {$this->letters[1]} \n";
-            $lines[] = "{$this->letters[2]}   {$this->letters[2]}\n";
+            $lines[] = " {$this->letters[1]} {$this->letters[1]} ";
+            $lines[] = "{$this->letters[2]}   {$this->letters[2]}";
         }
         for ($i = $this->order + 1; $i < $this->size; $i++) {
             $lines[$i] = $lines[$this->size - $i - 1];
         }
-        return implode('', $lines);
+        return implode("\n", $lines) . "\n";
     }
 }
