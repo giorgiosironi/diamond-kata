@@ -75,15 +75,15 @@ class Diamond
             $i = 1;
             $externalSpaces = $this->spaces($this->order - $i);
             $internalSpaces = $this->spaces(($i * 2) - 1);
-            $lines[] = "{$externalSpaces}{$this->letters[1]}{$internalSpaces}{$this->letters[1]}{$externalSpaces}";
+            $lines[] = "{$externalSpaces}{$this->letters[$i]}{$internalSpaces}{$this->letters[$i]}{$externalSpaces}";
             $i = 2;
             $externalSpaces = $this->spaces($this->order - $i);
             $internalSpaces = $this->spaces(($i * 2) - 1);
-            $lines[] = "{$externalSpaces}{$this->letters[2]}{$internalSpaces}{$this->letters[2]}{$externalSpaces}";
+            $lines[] = "{$externalSpaces}{$this->letters[$i]}{$internalSpaces}{$this->letters[$i]}{$externalSpaces}";
             $i = 3;
             $externalSpaces = $this->spaces($this->order - $i);
             $internalSpaces = $this->spaces(($i * 2) - 1);
-            $lines[] = "{$externalSpaces}{$this->letters[3]}{$internalSpaces}{$this->letters[3]}{$externalSpaces}";
+            $lines[] = "{$externalSpaces}{$this->letters[$i]}{$internalSpaces}{$this->letters[$i]}{$externalSpaces}";
         }
         for ($i = $this->order + 1; $i < $this->size; $i++) {
             $lines[$i] = $lines[$this->size - $i - 1];
