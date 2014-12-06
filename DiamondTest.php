@@ -43,8 +43,8 @@ class DiamondTest extends \PHPUnit_Framework_TestCase
 
 class Diamond
 {
-    private $finalLetter;
     private $order;
+    private $size;
     private $letters = [
         'A',
         'B',
@@ -54,7 +54,6 @@ class Diamond
     
     public function __construct($finalLetter)
     {
-        $this->finalLetter = $finalLetter;
         $this->order = array_search($finalLetter, $this->letters);
         $this->size = $this->order * 2 + 1;
     }
