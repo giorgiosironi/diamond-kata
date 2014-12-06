@@ -51,15 +51,15 @@ class Diamond
         $lines[] = $spaces . $this->letters[0] . $spaces . "\n";
         if ($this->order == 1) {
             $lines[] = "{$this->letters[1]} {$this->letters[1]}\n";
-            $lines[2] = $lines[0];
         }
         if ($this->order == 2) {
             $lines[] = " {$this->letters[1]} {$this->letters[1]} \n";
             $lines[] = "{$this->letters[2]}   {$this->letters[2]}\n";
-            $lines[3] = $lines[1];
-            $lines[4] = $lines[0];
         }
         $size = $this->order * 2 + 1;
+        for ($i = $this->order + 1; $i < $size; $i++) {
+            $lines[$i] = $lines[$size - $i - 1];
+        }
         return implode('', $lines);
     }
 }
