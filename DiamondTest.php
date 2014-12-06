@@ -65,10 +65,10 @@ class Diamond
         for ($i = 0; $i <= $this->order; $i++) {
             $externalSpaces = $this->spaces($this->order - $i);
             $internalSpaces = $this->spaces($i);
-            $leftPart = $externalSpaces . $this->letters[$i];
+            $leftPart = $externalSpaces . $this->letters[$i] . $internalSpaces;
             $lines[] = $this->overlapBy1(
-                $leftPart . $internalSpaces,
-                strrev($leftPart . $internalSpaces)
+                $leftPart,
+                strrev($leftPart)
             );
         }
         for ($i = $this->order + 1; $i < $this->size; $i++) {
