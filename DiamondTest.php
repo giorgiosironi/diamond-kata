@@ -35,11 +35,11 @@ class Diamond
     public function __toString()
     {
         $spaces = str_repeat(' ', $this->order);
-        $line = $spaces . 'A' . $spaces . "\n";
+        $line = $spaces . $this->letters[0] . $spaces . "\n";
         $secondLine = '';
         $thirdLine = '';
         if ($this->order > 0) {
-            $secondLine = "B B\n";
+            $secondLine = "{$this->letters[1]} {$this->letters[1]}\n";
             $thirdLine = $line;
         }
         return $line . $secondLine . $thirdLine;
