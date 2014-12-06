@@ -48,28 +48,18 @@ class Diamond
     {
         $spaces = str_repeat(' ', $this->order);
         $lines = [];
-        $line = $spaces . $this->letters[0] . $spaces . "\n";
-        $lines[] = $line;
-        $secondLine = '';
-        $thirdLine = '';
-        $fourthLine = '';
-        $fifthLine = '';
+        $lines[] = $spaces . $this->letters[0] . $spaces . "\n";
         if ($this->order == 1) {
-            $secondLine = "{$this->letters[1]} {$this->letters[1]}\n";
-            $lines[] = $secondLine;
-            $thirdLine = $line;
+            $lines[] = "{$this->letters[1]} {$this->letters[1]}\n";
             $lines[2] = $lines[0];
         }
         if ($this->order == 2) {
-            $secondLine = " {$this->letters[1]} {$this->letters[1]} \n";
-            $lines[] = $secondLine;
-            $thirdLine = "{$this->letters[2]}   {$this->letters[2]}\n";
-            $lines[] = $thirdLine;
-            $fourthLine = $secondLine;
+            $lines[] = " {$this->letters[1]} {$this->letters[1]} \n";
+            $lines[] = "{$this->letters[2]}   {$this->letters[2]}\n";
             $lines[3] = $lines[1];
-            $fifthLine = $line;
             $lines[4] = $lines[0];
         }
+        $size = $this->order * 2 + 1;
         return implode('', $lines);
     }
 }
