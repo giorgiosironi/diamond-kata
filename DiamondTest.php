@@ -72,9 +72,15 @@ class Diamond
             $lines[] = "{$this->letters[2]}   {$this->letters[2]}";
         }
         if ($this->order == 3) {
-            $lines[] = "  {$this->letters[1]} {$this->letters[1]}  ";
-            $lines[] = " {$this->letters[2]}   {$this->letters[2]} ";
-            $lines[] = "{$this->letters[3]}     {$this->letters[3]}";
+            $externalSpaces = "  ";
+            $internalSpaces = " ";
+            $lines[] = "{$externalSpaces}{$this->letters[1]}{$internalSpaces}{$this->letters[1]}{$externalSpaces}";
+            $externalSpaces = " ";
+            $internalSpaces = "   ";
+            $lines[] = "{$externalSpaces}{$this->letters[2]}{$internalSpaces}{$this->letters[2]}{$externalSpaces}";
+            $externalSpaces = "";
+            $internalSpaces = "     ";
+            $lines[] = "{$externalSpaces}{$this->letters[3]}{$internalSpaces}{$this->letters[3]}{$externalSpaces}";
         }
         for ($i = $this->order + 1; $i < $this->size; $i++) {
             $lines[$i] = $lines[$this->size - $i - 1];
