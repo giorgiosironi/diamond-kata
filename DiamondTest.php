@@ -71,7 +71,8 @@ class Diamond
             $lines[] = $leftPart . $internalSpaces . strrev($leftPart);
         }
         for ($i = $this->order + 1; $i < $this->size; $i++) {
-            $lines[$i] = $lines[$this->size - $i - 1];
+            $oppositeLine = $this->size - $i - 1;
+            $lines[$i] = $lines[$oppositeLine];
         }
         return implode("\n", $lines) . "\n";
     }
