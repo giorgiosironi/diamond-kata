@@ -15,6 +15,17 @@ class DiamondTest extends \PHPUnit_Framework_TestCase
             . " A \n"
             , (new Diamond("B"))->__toString());
     }
+
+    public function testThreeLetters()
+    {
+        $this->assertEquals(
+              "  A  \n" 
+            . " B B \n"
+            . "C   C\n"
+            . " B B \n"
+            . "  A  \n" 
+            , (new Diamond("C"))->__toString());
+    }
 }
 
 class Diamond
@@ -24,6 +35,7 @@ class Diamond
     private $letters = [
         'A',
         'B',
+        'C',
     ];
     
     public function __construct($finalLetter)
@@ -38,10 +50,18 @@ class Diamond
         $line = $spaces . $this->letters[0] . $spaces . "\n";
         $secondLine = '';
         $thirdLine = '';
-        if ($this->order > 0) {
+        $fourthLine = '';
+        $fifthLine = '';
+        if ($this->order == 1) {
             $secondLine = "{$this->letters[1]} {$this->letters[1]}\n";
             $thirdLine = $line;
         }
-        return $line . $secondLine . $thirdLine;
+        if ($this->order == 2) {
+            $secondLine = " {$this->letters[1]} {$this->letters[1]} \n";
+            $thirdLine = "{$this->letters[2]}   {$this->letters[2]}\n";
+            $fourthLine = $secondLine;
+            $fifthLine = $line;
+        }
+        return $line . $secondLine . $thirdLine . $fourthLine . $fifthLine;
     }
 }
