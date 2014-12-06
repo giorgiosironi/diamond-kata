@@ -49,8 +49,8 @@ class Diamond
     public function __construct($finalLetter)
     {
         $this->letters = [];
-        for ($i = 0; $i < ord($finalLetter) - ord('A') + 1; $i++) {
-            $this->letters[] = chr(ord('A') + $i);
+        for ($i = ord('A'); $i <= ord($finalLetter); $i++) {
+            $this->letters[] = chr($i);
         }
         $this->order = array_search($finalLetter, $this->letters);
         $this->size = $this->order * 2 + 1;
