@@ -62,10 +62,7 @@ class Diamond
     public function __toString()
     {
         $lines = $this->generateHalfOfTheDiamond();
-        for ($i = $this->order + 1; $i < $this->size; $i++) {
-            $oppositeLine = $this->size - $i - 1;
-            $lines[$i] = $lines[$oppositeLine];
-        }
+        $lines = $this->duplicateAllMinusOneOfTheLines($lines);
         return implode("\n", $lines) . "\n";
     }
 
@@ -80,6 +77,15 @@ class Diamond
                 $leftPart,
                 strrev($leftPart)
             );
+        }
+        return $lines;
+    }
+
+    private function duplicateAllMinusOneOfTheLines($lines)
+    {
+        for ($i = $this->order + 1; $i < $this->size; $i++) {
+            $oppositeLine = $this->size - $i - 1;
+            $lines[$i] = $lines[$oppositeLine];
         }
         return $lines;
     }
