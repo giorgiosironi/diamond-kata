@@ -11,7 +11,7 @@ class DiamondTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
               " A \n" 
-    //      . "B B\n" .
+            . "B B\n"
     //      . " A \n"
             , (new Diamond("B"))->__toString());
     }
@@ -35,7 +35,11 @@ class Diamond
     public function __toString()
     {
         $spaces = str_repeat(' ', $this->order);
-        $line = $spaces . 'A' . $spaces;
-        return $line . "\n";
+        $line = $spaces . 'A' . $spaces . "\n";
+        $secondLine = '';
+        if ($this->order > 0) {
+            $secondLine = "B B\n";
+        }
+        return $line . $secondLine;
     }
 }
