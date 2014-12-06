@@ -64,26 +64,10 @@ class Diamond
         $spaces = str_repeat(' ', $this->order);
         $lines = [];
         $lines[] = $spaces . $this->letters[0] . $spaces;
-        if ($this->order == 1) {
-            for ($i = 1; $i <= $this->order; $i++) {
-                $externalSpaces = $this->spaces($this->order - $i);
-                $internalSpaces = $this->spaces(($i * 2) - 1);
-                $lines[] = "{$externalSpaces}{$this->letters[$i]}{$internalSpaces}{$this->letters[$i]}{$externalSpaces}";
-            }
-        }
-        if ($this->order == 2) {
-            for ($i = 1; $i <= $this->order; $i++) {
-                $externalSpaces = $this->spaces($this->order - $i);
-                $internalSpaces = $this->spaces(($i * 2) - 1);
-                $lines[] = "{$externalSpaces}{$this->letters[$i]}{$internalSpaces}{$this->letters[$i]}{$externalSpaces}";
-            }
-        }
-        if ($this->order == 3) {
-            for ($i = 1; $i <= $this->order; $i++) {
-                $externalSpaces = $this->spaces($this->order - $i);
-                $internalSpaces = $this->spaces(($i * 2) - 1);
-                $lines[] = "{$externalSpaces}{$this->letters[$i]}{$internalSpaces}{$this->letters[$i]}{$externalSpaces}";
-            }
+        for ($i = 1; $i <= $this->order; $i++) {
+            $externalSpaces = $this->spaces($this->order - $i);
+            $internalSpaces = $this->spaces(($i * 2) - 1);
+            $lines[] = "{$externalSpaces}{$this->letters[$i]}{$internalSpaces}{$this->letters[$i]}{$externalSpaces}";
         }
         for ($i = $this->order + 1; $i < $this->size; $i++) {
             $lines[$i] = $lines[$this->size - $i - 1];
