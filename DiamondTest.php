@@ -42,6 +42,7 @@ class Diamond
     {
         $this->finalLetter = $finalLetter;
         $this->order = array_search($finalLetter, $this->letters);
+        $this->size = $this->order * 2 + 1;
     }
 
     public function __toString()
@@ -56,9 +57,8 @@ class Diamond
             $lines[] = " {$this->letters[1]} {$this->letters[1]} \n";
             $lines[] = "{$this->letters[2]}   {$this->letters[2]}\n";
         }
-        $size = $this->order * 2 + 1;
-        for ($i = $this->order + 1; $i < $size; $i++) {
-            $lines[$i] = $lines[$size - $i - 1];
+        for ($i = $this->order + 1; $i < $this->size; $i++) {
+            $lines[$i] = $lines[$this->size - $i - 1];
         }
         return implode('', $lines);
     }
