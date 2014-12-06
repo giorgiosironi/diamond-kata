@@ -61,9 +61,9 @@ class Diamond
 
     public function __toString()
     {
-        $spaces = str_repeat(' ', $this->order);
+        $externalSpaces = $this->spaces($this->order);
         $lines = [];
-        $lines[] = $spaces . $this->letters[0] . $spaces;
+        $lines[] = $externalSpaces . $this->letters[0] . $externalSpaces;
         for ($i = 1; $i <= $this->order; $i++) {
             $externalSpaces = $this->spaces($this->order - $i);
             $internalSpaces = $this->spaces(($i * 2) - 1);
