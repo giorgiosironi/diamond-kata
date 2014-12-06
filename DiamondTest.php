@@ -61,6 +61,16 @@ class Diamond
 
     public function __toString()
     {
+        $lines = $this->generateHalfOfTheDiamond();
+        for ($i = $this->order + 1; $i < $this->size; $i++) {
+            $oppositeLine = $this->size - $i - 1;
+            $lines[$i] = $lines[$oppositeLine];
+        }
+        return implode("\n", $lines) . "\n";
+    }
+
+    private function generateHalfOfTheDiamond()
+    {
         $lines = [];
         for ($i = 0; $i <= $this->order; $i++) {
             $externalSpaces = $this->spaces($this->order - $i);
@@ -71,11 +81,7 @@ class Diamond
                 strrev($leftPart)
             );
         }
-        for ($i = $this->order + 1; $i < $this->size; $i++) {
-            $oppositeLine = $this->size - $i - 1;
-            $lines[$i] = $lines[$oppositeLine];
-        }
-        return implode("\n", $lines) . "\n";
+        return $lines;
     }
 
     private function overlapBy1($first, $second)
